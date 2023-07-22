@@ -6,9 +6,9 @@ async function getRegistration(authData) {
   // Find the company registration with the provided details
   const registration = await Registration.findOne({
     companyName: authData.companyName,
-    clientID: authData.clientID,
+    // clientID: authData.clientID,
     ownerName: authData.ownerName,
-    ownerEmail: authData.ownerEmail,
+    ownerEmail: { $regex: new RegExp(authData.ownerEmail, "i") },
     rollNo: authData.rollNo,
     clientSecret: authData.clientSecret,
   });

@@ -24,6 +24,7 @@ router.post("/register", async (req, res) => {
 router.post("/auth", async (req, res) => {
   try {
     const authData = req.body;
+    console.log(authData);
 
     // Validate the required fields in the request
     if (!authData.companyName || !authData.clientID || !authData.clientSecret) {
@@ -32,6 +33,8 @@ router.post("/auth", async (req, res) => {
 
     // Check if the company is registered with the provided details
     const registration = await authController.getRegistration(authData);
+
+    console.log(registration);
 
     if (!registration) {
       // console.log(error);
