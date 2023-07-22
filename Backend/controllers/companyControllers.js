@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
 const Registration = require("../models/companySchema");
 
-// Generate the clientSecret function (you can customize this based on your requirements)
 function generateClientSecret() {
-  // Example: Generating a random 16-character alphanumeric clientSecret
   const characters =
     "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   let clientSecret = "";
@@ -29,7 +27,7 @@ async function registerCompany(req, res) {
       return res.status(400).json({ error: "Company already registered." });
     }
 
-    // Generate the clientSecret (you can use your own logic to generate the secret)
+    // Generate the clientSecret
     const clientSecret = generateClientSecret();
 
     // Save registration data to the database along with the generated clientSecret
