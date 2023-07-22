@@ -26,14 +26,7 @@ router.post("/auth", async (req, res) => {
     const authData = req.body;
 
     // Validate the required fields in the request
-    if (
-      !authData.companyName ||
-      !authData.clientID ||
-      !authData.ownerName ||
-      !authData.ownerEmail ||
-      !authData.rollNo ||
-      !authData.clientSecret
-    ) {
+    if (!authData.companyName || !authData.clientID || !authData.clientSecret) {
       return res.status(400).json({ error: "All fields are required." });
     }
 
@@ -41,7 +34,7 @@ router.post("/auth", async (req, res) => {
     const registration = await authController.getRegistration(authData);
 
     if (!registration) {
-      console.log(error);
+      // console.log(error);
       return res.status(400).json({ error: "Company not registered." });
     }
 
