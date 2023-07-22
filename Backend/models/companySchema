@@ -1,0 +1,32 @@
+const mongoose = require("mongoose");
+
+const company = new mongoose.Schema({
+  companyName: {
+    type: String,
+    required: true,
+  },
+  ownerName: {
+    type: String,
+    required: true,
+  },
+  rollNo: {
+    type: String,
+    required: true,
+  },
+  ownerEmail: {
+    type: String,
+    required: true,
+  },
+  accessCode: {
+    type: String,
+    required: true,
+  },
+  clientSecret: {
+    type: String,
+    required: true,
+  },
+});
+
+const Registration = mongoose.model("Registration", company);
+
+module.exports = Registration;
